@@ -1,0 +1,18 @@
+<div class="row" style="height: 300px; margin-top: 12px;" *ngIf="country; else elseCard">
+  <div class="col col-md-12">
+    <div class="card" style="width: 100%; height: 100%;">
+      <div class="card-body">
+        <h5 class="card-title"> News from {{country.name }}</h5>
+        <p *ngIf="!news || news.length <= 0">No news found for this country.</p>
+        <ul class="list-group" style="width: 100% !important; height: 100%; overflow-y: scroll;">
+          <li class="list-group-item" *ngFor="let article of news">{{ article.title }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #elseCard>
+  <app-not-found-country [content]="content" [subtitle]="subtitle"></app-not-found-country>
+</ng-template>
+

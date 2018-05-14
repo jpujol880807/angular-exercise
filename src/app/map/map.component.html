@@ -1,0 +1,17 @@
+<div class="form-group">
+  <ng-select [(items)]="countries"
+             (add)="selectedCountry()"
+             bindLabel="name"
+             bindValue="code"
+             placeholder="Select a Country"
+             [(ngModel)]="selected_country">
+  </ng-select>
+</div>
+<div style="height: 300px;"
+     leaflet
+     [leafletOptions]="map_options"
+     [leafletZoom]="zoom"
+     [leafletCenter]="center"
+     [leafletLayers]="markers"
+>
+</div>

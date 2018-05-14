@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  selected_country = '___';
+
+  constructor(private router: Router) {
+  }
+
+  getSelectedCountry(country: string) {
+    if (country !== '') {
+      this.selected_country = country;
+    } else {
+      this.selected_country = '___';
+    }
+  }
+
 }

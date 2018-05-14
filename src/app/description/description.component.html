@@ -1,0 +1,25 @@
+<div class="row" *ngIf="country; else elseCard" style="height: 300px; margin-top: 12px;">
+  <div class="col col-md-12">
+    <div class="card flex-fill" style="height: 100%;">
+      <div class="card-body">
+        <h5 class="card-title">{{country.name}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{country.subregion}}</h6>
+        <p class="card-text">
+          This country has a population of {{country.population}} persons.
+          It's capital is {{country.capital}}.
+          The languages spoken on this country are:
+        </p>
+        <ul>
+          <li *ngFor="let language of country.languages">
+            {{language.name}}
+          </li>
+        </ul>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #elseCard>
+  <app-not-found-country [subtitle]="subtitle" [content]="content"></app-not-found-country>
+</ng-template>

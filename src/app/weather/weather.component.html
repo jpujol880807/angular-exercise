@@ -1,0 +1,24 @@
+<div class="row" *ngIf="country; else elseCard" style="height: 300px; margin-top: 12px;">
+  <div class="col col-md-12">
+    <div class="card flex-fill" style="height: 100%;">
+      <div class="card-body">
+        <h5 class="card-title"> Weather on {{country.capital}} city, capital of {{country.name}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{country.subregion}}</h6>
+        <ul *ngIf="weather">
+          <li>Humidity: {{weather.main.humidity}} %</li>
+          <li>Pressure: {{weather.main.pressure}}</li>
+          <li>Pressure: {{weather.main.pressure}}</li>
+          <li>Temperature: {{convertToC(weather.main.temp)}} ℃</li>
+          <li>Max Temperature {{convertToC(weather.main.temp_max)}} ℃</li>
+          <li>Min Temperature {{convertToC(weather.main.temp_min)}} ℃</li>
+        </ul>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #elseCard>
+  <app-not-found-country [subtitle]="subtitle" [content]="content"></app-not-found-country>
+</ng-template>
+

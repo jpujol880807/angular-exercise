@@ -1,0 +1,23 @@
+<div class="row" *ngIf="country; else elseCard" style="height: 300px; margin-top: 12px;">
+  <div class="col col-md-12">
+    <div class="card" style="width: 100%; height: 100%;">
+      <div class="card-body" style= "height: 300px;">
+        <h5 class="card-title">{{country.name}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{country.subregion}}</h6>
+        <p class="card-text">
+          Currencies list:
+        </p>
+        <ul>
+          <li *ngFor="let currency of currencies">
+            {{currency.symbol}} {{currency.name}} {{(currency.value? '= ' + currency.value + ' dollars.': '')}}
+          </li>
+        </ul>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #elseCard>
+  <app-not-found-country [subtitle]="subtitle" [content]="content"></app-not-found-country>
+</ng-template>
