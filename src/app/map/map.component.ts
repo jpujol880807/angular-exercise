@@ -60,7 +60,7 @@ export class MapComponent implements OnInit {
         this.center = latLng(this.country.latlng);
         this.removeMarker();
         this.addMarker();
-        this.router.navigateByUrl('/country' + this.selected_country + '/description');
+        this.router.navigateByUrl('/country/' + this.selected_country + '/description');
       },
       (error: any) => {
         console.log(error);
